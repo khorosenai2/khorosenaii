@@ -1,0 +1,38 @@
+{
+  "name": "Khorosenai",
+  "initials": "",
+  "avatarUrl": "./assets/kiriko.png",
+  "badge": "Developpeur · Overwatch Player",
+  "bio": "OpenGL lua C++ Developpeur",
+
+  "background": {
+    "imageUrl": "./assets/background.png",
+    "overlayOpacity": 0.55,
+    "accentColor": "#c8a97e"
+  },
+
+  "links": [
+    {
+      "type": "discord",
+      "label": "Discord",
+      "sub": "khorosenai#1875",
+      "url": "https://discord.com/users/791739844451368972"
+    },
+    {
+      "type": "github",
+      "label": "GitHub",
+      "sub": "github.com/khorosenai2",
+      "url": "https://github.com/khorosenai2"
+    }
+  ],
+
+  "music": {
+    "title": "Mamacita",
+    "artist": "Ninho",
+    "src": "./music/song.mp3",
+    "autoplay": true,
+    "loop": true
+  },
+
+  "footer": "khorosenai · 2026"
+}
