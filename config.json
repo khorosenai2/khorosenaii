@@ -24,14 +24,14 @@
       "sub": "github.com/khorosenai2",
       "url": "https://github.com/khorosenai2"
     },
-  ],
     {
-      "type": "Steam",
+      "type": "steam",
       "label": "Steam",
-      "sub": "https://steamcommunity.com/profiles/76561199644554958/",
+      "sub": "76561199644554958",
       "url": "https://steamcommunity.com/profiles/76561199644554958/"
     }
-  ]
+  ],
+
   "music": {
     "title": "Mamacita",
     "artist": "Ninho",
