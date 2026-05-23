@@ -120,7 +120,7 @@
 
   .link-arrow { opacity:0.25; flex-shrink:0; }
 
-  /* ---- Barre musique ---- */
+
   .music-bar {
     display:flex; align-items:center; gap:0.75rem;
     padding:0.65rem 1rem;
@@ -144,7 +144,6 @@
   .music-progress { width:100%; height:2px; background:rgba(255,255,255,0.1); border-radius:2px; margin-top:6px; overflow:hidden; }
   .music-fill { height:100%; background:var(--accent); border-radius:2px; width:0%; transition:width 1s linear; }
 
-  /* Petit indicateur "en lecture" qui pulse */
   .music-live {
     width:6px; height:6px; border-radius:50%;
     background:var(--accent); flex-shrink:0;
@@ -161,7 +160,6 @@
     font-size:0.7rem; color:rgba(154,148,144,0.4); letter-spacing:0.06em;
   }
 
-  /* ---- Loader ---- */
   #loader {
     position:fixed; inset:0; background:#0c0c0e;
     display:flex; align-items:center; justify-content:center;
@@ -253,14 +251,12 @@ audio.addEventListener('timeupdate', () => {
 fetch('./config.json')
   .then(r => r.json())
   .then(cfg => {
-    /* -- CSS dynamique -- */
     const r = document.documentElement.style;
     r.setProperty('--accent', cfg.background.accentColor);
     r.setProperty('--overlay-color', `rgba(0,0,0,${cfg.background.overlayOpacity})`);
     document.body.style.backgroundImage = `url('${cfg.background.imageUrl}')`;
     document.title = cfg.name;
 
-    /* -- Avatar -- */
     const av = document.getElementById('avatarEl');
     if (cfg.avatarUrl) {
       av.innerHTML = `<img src="${cfg.avatarUrl}" alt="avatar">`;
@@ -268,7 +264,6 @@ fetch('./config.json')
       av.textContent = cfg.initials;
     }
 
-    /* -- Textes -- */
     document.getElementById('userName').textContent    = cfg.name;
     document.getElementById('userBadge').textContent   = cfg.badge;
     document.getElementById('userBio').textContent     = cfg.bio;
@@ -276,7 +271,6 @@ fetch('./config.json')
     document.getElementById('musicArtist').textContent = cfg.music.artist;
     document.getElementById('pageFooter').textContent  = cfg.footer;
 
-    /* -- Liens -- */
     const list = document.getElementById('linksList');
     cfg.links.forEach(l => {
       const a = document.createElement('a');
@@ -292,22 +286,18 @@ fetch('./config.json')
       list.appendChild(a);
     });
 
-    /* -- Audio -- */
     audio.loop = cfg.music.loop;
     audio.src  = cfg.music.src;
 
-    /* -- Affiche la carte -- */
     document.getElementById('loader').style.opacity = '0';
     setTimeout(() => document.getElementById('loader').style.display = 'none', 400);
     document.getElementById('card').style.display = 'block';
 
-    /* -- Autoplay -- */
+ 
     if (cfg.music.autoplay) {
       audio.play()
         .then(() => setPlaying(true))
         .catch(() => {
-          /* Les navigateurs bloquent l'autoplay sans interaction.
-             Un clic sur n'importe quoi déclenchera la lecture. */
           const startOnClick = () => {
             audio.play().then(() => setPlaying(true)).catch(() => {});
             document.removeEventListener('click', startOnClick);
