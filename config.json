@@ -2,7 +2,7 @@
   "name": "Khorosenai",
   "initials": "",
   "avatarUrl": "./assets/kiriko.png",
-  "badge": "Developpeur · Overwatch Player",
+  "badge": "Developpeur ",
   "bio": "OpenGL C++ Developpeur",
 
   "background": {
@@ -40,5 +40,5 @@
     "loop": true
   },
 
-  "footer": "khorosenai · 2026 · Coder par moi :)"
+  "footer": "khorosenai · 2026 · dev par moi :)"
 }
